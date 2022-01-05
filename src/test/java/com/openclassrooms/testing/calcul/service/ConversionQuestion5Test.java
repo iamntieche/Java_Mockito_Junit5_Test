@@ -5,12 +5,16 @@ import static org.mockito.Mockito.verify;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 
 import com.openclassrooms.testing.calcul.domain.ConversionCalculator;
 import com.openclassrooms.testing.calcul.domain.model.ConversionModel;
 import com.openclassrooms.testing.calcul.domain.model.ConversionType;
+import org.mockito.junit.jupiter.MockitoExtension;
+import static org.mockito.Mockito.*;
 
+@ExtendWith(MockitoExtension.class)
 public class ConversionQuestion5Test {
 	@Mock
 	ConversionCalculator calculator;
@@ -25,7 +29,8 @@ public class ConversionQuestion5Test {
 	@Test
 	public void calculate_shouldUseCalculator_forCelsiusToFarenheit() {
 		// GIVEN
-		final double resultatAttendu = 32.;
+		final double resultatAttendu = 32.0;
+		when(calculator.celsiusToFahrenheit(0.0)).thenReturn(32.0);
 
 		// WHEN
 		final double resultat = conversionCalculatorService.calculate(

@@ -45,7 +45,7 @@ public class ConversionCalculator {
 	/**
 	 * Convertir a volume en gallons en litres.
 	 *
-	 * @param litreVolume à convertir
+	 * @param gallonsVolume à convertir
 	 * @return volume en gallons
 	 */
 	public Double gallonsToLitres(Double gallonsVolume) {

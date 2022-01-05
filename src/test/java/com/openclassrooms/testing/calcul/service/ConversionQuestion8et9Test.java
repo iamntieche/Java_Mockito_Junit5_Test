@@ -1,6 +1,7 @@
 package com.openclassrooms.testing.calcul.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.tuple;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -10,6 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
+import com.openclassrooms.testing.calcul.domain.model.ConversionType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -42,7 +44,8 @@ public class ConversionQuestion8et9Test {
 		batchConversionService.batchConvert(operations);
 
 		// THEN
-		// ...
+		assertThat(operationsList.size()).isEqualTo(2);
+		verify(conversionService, times(2)).calculate(conversionModelCaptor.capture());
 
 	}
 
